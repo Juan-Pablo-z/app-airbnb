@@ -9,7 +9,8 @@ export const getImages = async () => {
   const resp = await fetch(url)
   const { results } = await resp.json();
 
-  const images = results.map(img => ({
+  const images = results.map((img,index) => ({
+    key:index,
     id: img.id,
     title: img.user.location,
     url: img.urls.raw,
@@ -17,7 +18,6 @@ export const getImages = async () => {
     description:img.alt_description,
   }))
 
-  console.log(images)
   return images;
 }
 

@@ -5,6 +5,8 @@ import { LiaMountainSolid } from "react-icons/lia";
 import { GoFlame } from "react-icons/go";
 import { LuTreePine } from "react-icons/lu";
 import { useTranslation } from "react-i18next"
+import ModalFilter from './ModalFilter';
+import SwitchFilter from './Switch';
 
 
 export const Filters = () => {
@@ -21,12 +23,18 @@ export const Filters = () => {
 
 
   return (
-    <div className='sticky bg-white'>
+    <div className='sticky bg-white flex items-center justify-between'>
       {/* justify-star */}
-      <div className='flex justify-center gap-3 sm:gap-4 mt-4 px-3'>
-        {sorting.map((object) => (
-          <Filter title={t(object.title)} icon={object.icon} />
+      <div className='flex gap-3 sm:gap-4 mt-4 px-3'>
+        {sorting.map((object,index) => (
+          <Filter key={index} title={t(object.title)} icon={object.icon} />
         ))}
+      </div>
+      <div>
+        <ModalFilter/>
+      </div>
+      <div>
+          <SwitchFilter/>
       </div>
     </div>
   )

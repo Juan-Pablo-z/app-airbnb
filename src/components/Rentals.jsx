@@ -24,7 +24,8 @@ export const Rentals = () => {
   return (
     <div className='pt-3 sm:pt-5'>
       <div className=' grid justify-center gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
-        {Img.map(image => <Rental
+        {Img.map((image,index) => <Rental
+          key={index}
           id={image.id}
           title={image.title}
           images={image.url}
